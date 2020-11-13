@@ -5,27 +5,29 @@ import './Tab1.css';
 
 const Tab1: React.FC = () => {
   return (
-    <IonGrid>
-      <IonRow class="ion-justify-content-center">
-        <form className="ion-padding">
-          <IonItem>
-            <IonLabel position="floating">Username</IonLabel>
-            <IonInput />
-          </IonItem>
-          <IonItem>
-            <IonLabel position="floating">Password</IonLabel>
-            <IonInput type="password" />
-          </IonItem>
-          <IonItem lines="none">
-            <IonLabel>Remember me</IonLabel>
-            <IonCheckbox defaultChecked={true} slot="start" />
-          </IonItem>
-          <IonButton className="ion-margin-top" type="submit" expand="block">
-            Login
-          </IonButton>
-        </form>
-      </IonRow>
-    </IonGrid>
+    <IonPage>
+      <IonGrid>
+        <IonRow class="ion-justify-content-center">
+          <form className="ion-padding">
+            <IonItem>
+              <IonLabel position="floating">Username</IonLabel>
+              <IonInput />
+            </IonItem>
+            <IonItem>
+              <IonLabel position="floating">Password</IonLabel>
+              <IonInput type="password" />
+            </IonItem>
+            <IonItem lines="none">
+              <IonLabel>Remember me</IonLabel>
+              <IonCheckbox defaultChecked={true} slot="start" />
+            </IonItem>
+            <IonButton className="ion-margin-top" type="submit" expand="block">
+              Login
+            </IonButton>
+          </form>
+        </IonRow>
+      </IonGrid>
+    </IonPage>
   );
 };
 
