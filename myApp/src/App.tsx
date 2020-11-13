@@ -31,13 +31,20 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
-const App: React.FC = () => (
+
+const App: React.FC = () => {
+  
+  const isLoggedIn = false;
+
+  return (
   <IonApp>
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <PageRouter />
+          <PageRouter isLoggedIn={isLoggedIn} />
         </IonRouterOutlet>
+        {
+          isLoggedIn ?
         <IonTabBar slot="bottom">
           <IonTabButton tab="tab1" href="/tab1">
             <IonIcon icon={triangle} />
@@ -52,9 +59,12 @@ const App: React.FC = () => (
             <IonLabel>Tab 3</IonLabel>
           </IonTabButton>
         </IonTabBar>
+        : <IonTabBar></IonTabBar>
+        }
       </IonTabs>
     </IonReactRouter>
   </IonApp>
-);
+  );
+}
 
 export default App;
