@@ -2,7 +2,7 @@ import React from 'react';
 import { IonButton, IonCheckbox, IonGrid, IonInput, IonItem, IonLabel, IonRow, IonPage } from '@ionic/react';
 import './Login.css';
 
-const Login: React.FC = () => {
+function Login(props: { setLoginStatus: any; }) {
   return (
     <IonPage>
       <IonGrid>
@@ -20,7 +20,7 @@ const Login: React.FC = () => {
               <IonLabel>Remember me</IonLabel>
               <IonCheckbox defaultChecked={true} slot="start" />
             </IonItem>
-            <IonButton className="ion-margin-top" type="submit" expand="block">
+            <IonButton className="ion-margin-top" type="submit" expand="block" onClick={props.setLoginStatus(true)}>
               Login
             </IonButton>
           </form>

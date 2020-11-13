@@ -5,8 +5,8 @@ import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
 
-function PageRouter(props: { isLoggedIn: boolean; }) {
-
+function PageRouter(props: { isLoggedIn: boolean, setLoginStatus: any; }) {
+    
     if (props.isLoggedIn) {
         return (
             <React.Fragment>
@@ -19,7 +19,7 @@ function PageRouter(props: { isLoggedIn: boolean; }) {
     }
     return (
         <React.Fragment>
-            <Route path="/login" component={Login} />
+            <Route path="/login" render={() => <Login setLoginStatus={props.setLoginStatus}/>} />
             <Route path="/" render={() => <Redirect to="/login" />} />
         </React.Fragment>
     );

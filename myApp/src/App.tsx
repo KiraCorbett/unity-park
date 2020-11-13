@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   IonApp,
   IonIcon,
@@ -32,16 +32,18 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 
 
-const App: React.FC = () => {
-  
-  const isLoggedIn = false;
+function App() {
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  function setLoginStatus(status: boolean) { setIsLoggedIn(status) };
 
   return (
   <IonApp>
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <PageRouter isLoggedIn={isLoggedIn} />
+          <PageRouter isLoggedIn={isLoggedIn} setLoginStatus={setLoginStatus} />
         </IonRouterOutlet>
         {
           isLoggedIn ?
