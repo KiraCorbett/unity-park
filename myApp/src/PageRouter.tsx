@@ -19,7 +19,7 @@ function PageRouter(props: { isLoggedIn: boolean, setLoginStatus: any; }) {
     }
     return (
         <React.Fragment>
-            <Route path="/login" render={() => <Login setLoginStatus={props.setLoginStatus}/>} />
+            <Route path="/login" render={() => <Login isLoggedIn={props.isLoggedIn} setIsLoggedIn={props.setLoginStatus}/>} />
             <Route path="/" render={() => <Redirect to="/login" />} />
         </React.Fragment>
     );

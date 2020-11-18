@@ -1,8 +1,23 @@
 import React from 'react';
 import { IonButton, IonCheckbox, IonGrid, IonInput, IonItem, IonLabel, IonRow, IonPage } from '@ionic/react';
 import './Login.css';
+import { Redirect } from 'react-router-dom';
 
-function Login(props: { setLoginStatus: any; }) {
+function Login(props: { isLoggedIn: boolean; setIsLoggedIn: any; }) {
+
+  function setLoginStatus() {
+    props.setIsLoggedIn(true);
+  };
+
+  function renderRedirect() {
+    console.log(props.isLoggedIn)
+    if (props.isLoggedIn) {
+      return (
+        <Redirect to={{ pathname: "/tab1" }} />
+      )
+    }
+  }
+
   return (
     <IonPage>
       <IonGrid>
@@ -20,9 +35,10 @@ function Login(props: { setLoginStatus: any; }) {
               <IonLabel>Remember me</IonLabel>
               <IonCheckbox defaultChecked={true} slot="start" />
             </IonItem>
-            <IonButton className="ion-margin-top" type="submit" expand="block" onClick={props.setLoginStatus(true)}>
+            <IonButton className="ion-margin-top" type="submit" expand="block" onClick={setLoginStatus}>
               Login
             </IonButton>
+            {renderRedirect()}
           </form>
         </IonRow>
       </IonGrid>
